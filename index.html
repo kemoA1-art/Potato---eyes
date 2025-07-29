@@ -1,0 +1,58 @@
+<!DOCTYPE html><html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>البطاطس اللي بتراقبك 👀🥔</title>
+  <link href="https://fonts.googleapis.com/css2?family=Changa:wght@600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background-color: #222;
+      font-family: 'Changa', sans-serif;
+      overflow: hidden;
+    }
+    h1 {
+      color: #fff;
+      text-align: center;
+      margin-top: 20px;
+      font-size: 2.5rem;
+    }
+    .note {
+      color: #aaa;
+      text-align: center;
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+    .potato {
+      position: absolute;
+      width: 120px;
+      height: 150px;
+      background: url('https://i.postimg.cc/XY6sZHKK/file-00000000f99061f89667494e0a977ce8.png') no-repeat center/cover;
+    }
+  </style>
+</head>
+<body>
+  <h1>البطاطس بتبصلك... متخافش 😳</h1>
+  <div class="note">حط الماوس في اي مكان أو ألمس في أي مكان 🎯</div>
+  <div class="potato" id="potato"></div>
+  <audio id="sfx" src="https://voca.ro/1mqkcK1eptrc"></audio>  <script>
+    const potato = document.getElementById("potato");
+    const sound = document.getElementById("sfx");
+    let lastPlay = 0;
+
+    document.addEventListener("mousemove", (e) => {
+      const x = e.clientX;
+      const y = e.clientY;
+
+      potato.style.left = (x - 60) + "px";
+      potato.style.top = (y - 75) + "px";
+
+      // تشغيل الصوت لو قرب الماوس منها
+      const now = Date.now();
+      if (now - lastPlay > 1000) {
+        sound.currentTime = 0;
+        sound.play();
+        lastPlay = now;
+      }
+    });
+  </script></body>
+</html>
