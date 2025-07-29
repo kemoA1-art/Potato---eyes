@@ -1,59 +1,58 @@
-<!DOCTYPE html><html lang="ar">
+<!DOCTYPE html>
+<html lang="ar">
 <head>
   <meta charset="UTF-8">
-  <title>البطاطس اللي بتراقبك 👀🥔</title>
-  <link href="https://fonts.googleapis.com/css2?family=Changa:wght@600&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>بطاطس بتبصلك 🥔👀</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      background-color: #222;
-      font-family: 'Changa', sans-serif;
-      overflow: hidden;
+      padding: 0;
+      background-color: #f5f5f5;
+      font-family: 'Cairo', sans-serif;
+      text-align: center;
     }
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     h1 {
-      color: #fff;
-      text-align: center;
+      color: #333;
       margin-top: 20px;
-      font-size: 2.5rem;
     }
-    .note {
-      color: #aaa;
-      text-align: center;
-      font-size: 1.2rem;
-      margin-bottom: 20px;
+
+    img {
+      max-width: 90%;
+      height: auto;
+      transition: transform 0.2s ease;
     }
-    .potato {
-      position: absolute;
-      width: 120px;
-      height: 150px;
-      background: url('https://i.postimg.cc/XY6sZHKK/file-00000000f99061f89667494e0a977ce8.png') no-repeat center/cover;
+
+    audio {
+      margin-top: 20px;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.2rem;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>البطاطس بتبصلك... متخافش 😳</h1>
-  <div class="note">حط الماوس في اي مكان أو ألمس في أي مكان 🎯</div>
-  <div class="potato" id="potato"></div>
-  <audio id="sfx" src="https://voca.ro/1mqkcK1eptrc"></audio>  <script>
-    const potato = document.getElementById("potato");
-    const sound = document.getElementById("sfx");
-    let lastPlay = 0;
+  <h1>جرب تقرب الماوس من البطاطس 👀🥔</h1>
+  <img src="https://i.postimg.cc/jqy1H3tj/file-00000000db6c6246ba7ed1c443ff32b4.png" id="potato">
+  <audio id="sound" src="حط لينك الصوت هنا.mp3"></audio>
 
-    document.addEventListener("mousemove", (e) => {
-      const x = e.clientX;
-      const y = e.clientY;
+  <script>
+    const potato = document.getElementById('potato');
+    const sound = document.getElementById('sound');
 
-      potato.style.left = (x - 60) + "px";
-      potato.style.top = (y - 75) + "px";
-
-      // تشغيل الصوت لو قرب الماوس منها
-      const now = Date.now();
-      if (now - lastPlay > 1000) {
-        sound.currentTime = 0;
-        sound.play();
-        lastPlay = now;
-      }
+    potato.addEventListener('mouseenter', () => {
+      potato.style.transform = "scale(1.05)";
+      sound.play();
     });
-  </script></body>
+
+    potato.addEventListener('mouseleave', () => {
+      potato.style.transform = "scale(1)";
+    });
+  </script>
+</body>
 </html>
